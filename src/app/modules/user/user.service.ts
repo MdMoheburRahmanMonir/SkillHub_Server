@@ -1,12 +1,8 @@
-export const getAllUsers = () => {
-  return [
-    {
-      id: 1,
-      name: "Monir",
-    },
-    {
-      id: 2,
-      name: "Rahim",
-    },
-  ];
-};
+import { db } from "../../db/mongodb.js";
+
+ 
+
+export const getAllUsers = async () => {
+  const users = await db.collection("user").find().toArray(); 
+  return users;
+}; 
